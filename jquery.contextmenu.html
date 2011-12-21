@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title></title>
+	
+	<!-- META -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="jquery.contextmenu.css" />
+
+	<!-- JS -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.contextmenu.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#one').contextmenu(menu1);
+			$('#two').contextmenu(menu2);
+			$('#three').contextmenu(menu3);
+		});
+	</script>
+	
+	<style type="text/css">
+		body { text-align: center; }
+	
+		.test {
+			display: inline-block;
+			text-align: center;
+			margin: 12px;
+			padding: 45px;
+			font-family: Helvetica;
+			background-color: #d2d2d2;
+			color: #333;
+			text-shadow: 0px 1px 0px #fff;
+		}
+	
+	</style>
+	
+</head>
+<body>
+	<div class="test" id="one">Right-Click Me</div>
+	<div class="test" id="two">Right-Click Me</div>
+	<div class="test" id="three">Right-Click Me</div>
+</body>
+</html>

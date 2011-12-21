@@ -1,0 +1,56 @@
+/* jQuery ContextMenu Plugin
+ * 		Create right-click UI context menus and attach them to elements
+ *
+ * Author: Gordon Hall
+ *
+ */
+
+
+#gh_contextMenu {
+	position: absolute;
+	width: 180px;
+	padding: 3px 0px;
+	display: none;
+	
+	font-family: Helvetica, sans-serif;
+	color: #333;
+	text-shadow: 0px 1px 0px #fff;
+	font-size: 13px;
+	
+	background-color: #f9f9f9;
+	border: 1px solid #e2e2e2;
+	
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	
+	box-shadow: 0px 10px 18px rgba(0,0,0,0.2);
+
+}
+
+.gh_menuItem {
+	padding: 4px 12px;
+	border-bottom: 1px solid #eee;
+	border-top: 1px solid #fff;
+	text-align: left;
+}
+
+.gh_menuItem:first-of-type { border-top: none; }
+
+.gh_menuItem:last-of-type { border-bottom: none; }
+
+.gh_menuItem:hover {
+	background: #356aa0; /* Old browsers */
+	background: -moz-linear-gradient(top,  #356aa0 0%, #356aa0 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#356aa0), color-stop(100%,#356aa0)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #356aa0 0%,#356aa0 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #356aa0 0%,#356aa0 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #356aa0 0%,#356aa0 100%); /* IE10+ */
+	background: linear-gradient(top,  #356aa0 0%,#356aa0 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#356aa0', endColorstr='#356aa0',GradientType=0 ); /* IE6-9 */
+
+
+	cursor: default;
+	color: #fff;
+	text-shadow: none;
+}
