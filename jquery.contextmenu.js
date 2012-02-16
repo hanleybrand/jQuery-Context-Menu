@@ -8,20 +8,32 @@
 	
 	Be sure to include both the CSS and JS files, as well as the jQuery library.
 	
-	To enable a right-click context menu on an item, call the method like so:
+	To enable a right-click context menu on an item, call the method like:
 	
 		$('#element').contextmenu(whatMenu);
 	
 	As you can see, contextmenu() takes an argument to determine which menu list it should use for that element.
 	
-	These menu lists can be defined anywhere, as long as they are global and are within scope. 
+	These menu lists can be defined anywhere, as long as they are within scope. 
 	The lists are defined as JSON objects, where 'key' is the label that appears in the menu, and 'val'
 	is the function to run when that option is clicked.
+	
+	When writing your context menu functions, if you need to access the selected element, you can select it with:
+		
+		$('.contextActive:first')
+		
+	OR if you are performing operations on multiple selected elements you can loop through them with:
+	
+		$('.contextActive').each(function() {
+			// function to run on each item
+		});
 	
 	Example:
 		
 		testmenu = { 'Test' : 'testFunction()' , 'Another Test' : 'anotherTestFunction()' };
 
+	
+	
 	You can have as many unique menus as you like, just pass the name as the argument. 
 
 */
@@ -37,15 +49,16 @@
 			$('#gh_contextMenu').fadeOut(300, function() {
 				$(this).remove(); 
 			}); 
+			$('.contextActive').removeClass('contextActive');
 		});
 		
-		this.bind('click', function(event) { event.stopPropagation(); });
+		this.live('click', function(event) { event.stopPropagation(); });
 		
-		this.bind('contextmenu', function(event) { event.preventDefault(); });
+		this.live('contextmenu', function(event) { event.preventDefault(); });
 		
 		this.css('cursor','default !important');
 		
-		this.mousedown(function(event) {
+		this.live('mousedown', function(event) {
 		
 			var xpos = event.pageX;
 			var ypos = event.pageY;
@@ -53,6 +66,9 @@
 			if ( event.which == 3 ) {
 				
 				if (whichMenu == undefined) { console.log('no context menu defined'); } else { 
+				
+					$('#gh_contextMenu').remove();
+					$(this).addClass('contextActive');
 				
 					var menuCtr = '<div id="gh_contextMenu"><\/div>';
 					$('body').append(menuCtr);
@@ -67,7 +83,6 @@
 					$.each(whichMenu, function(key,val) {
 						var menuItm = '<div class="gh_menuItem" onclick="' + val + '">' + key + '<\/div>';
 						$('#gh_contextMenu').append(menuItm);
-						console.log('click ' + key + ' to run: ' + val);
 					}); 
 					
 				}
@@ -110,25 +125,25 @@ menu3 = {
 ////////////////////////////////////////////
 
 function saveItem() { 
-	console.log('saveItem function called.');
+	alert('saveItem function called.');
 }
 
 function deleteItem() {
-	console.log('deleteItem function called.');
+	alert('deleteItem function called.');
 }
 
 function editItem() {
-	console.log('editItem function called.');
+	alert('editItem function called.');
 }
 
 function renameItem() {
-	console.log('renameItem function called.');
+	alert('renameItem function called.');
 }
 
 function openItem() {
-	console.log('openItem function called.');
+	alert('openItem function called.');
 }
 
 function openItemWith() {
-	console.log('openItemWith function called.');
+	alert('openItemWith function called.');
 }
